@@ -7,11 +7,11 @@
 #' @details This is a public, read-only account. Any abuse will be considered a 
 #' hostile act. 
 #' 
-#' @return For \code{\link{src_mysql}}, a \code{\link[dplyr]{src_mysql}} object
+#' @return For \code{\link{src_scidb}}, a \code{\link[dplyr]{src_dbi}} object
 #' 
-#' @seealso \code{\link[dplyr]{src_mysql}}
+#' @seealso \code{\link[dbplyr]{src_dbi}}
 #' 
-#' @importFrom dplyr src_mysql
+#' @importFrom dbplyr src_dbi
 #' @importFrom RMySQL MySQL
 #' @export
 #' 
@@ -21,8 +21,7 @@
 #' dbAir
 
 src_scidb <- function(dbname, ...) {
-  dplyr::src_mysql(dbname, host = "scidb.smith.edu", 
-                   user = "mth292", password = "RememberPi")
+  dbplyr::src_dbi(dbConnect_scidb(dbname, ...))
 }
 
 #' @rdname src_scidb
@@ -40,14 +39,14 @@ src_scidb <- function(dbname, ...) {
 #' dbAir
 
 dbConnect_scidb <- function(dbname, ...) {
-  dbConnect(RMySQL::MySQL(), dbname = dbname, host = "scidb.smith.edu", 
+  DBI::dbConnect(RMySQL::MySQL(), dbname = dbname, host = "scidb.smith.edu", 
             user = "mth292", password = "RememberPi")
 }
 
 #' @rdname src_scidb
 #' @export
 #' 
-#' @return For \code{\link{mysql_scidb}}, a charcter vector of length 1 to be used
+#' @return For \code{\link{mysql_scidb}}, a character vector of length 1 to be used
 #' as an \code{engine.ops} argument, or on the command line. 
 #' 
 #' @seealso \code{\link[knitr]{opts_chunk}}

@@ -40,10 +40,9 @@ glimpse(CIACountries)
 
 }
 \references{
-\url{https://github.com/factbook/factbook.csv}
+\url{https://github.com/factbook/factbook/blob/master/data/categories.csv}
 }
 \seealso{
 \code{\link[mosaic]{CIAdata}}
 }
 \keyword{datasets}
-
