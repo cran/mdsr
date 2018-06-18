@@ -1,3 +1,10 @@
+mdsr 0.1.6
+
+* improved documentation [#18](https://github.com/beanumber/mdsr/issues/18)
+* `scidb` functions now point to AWS RDS instance
+* Added tests
+* Removed `tidyverse` dependency [#31](https://github.com/beanumber/mdsr/issues/31)
+
 mdsr 0.1.5
 
 * Fixed [#27](https://github.com/beanumber/mdsr/issues/27): non-ASCII characters
