@@ -1,3 +1,9 @@
+mdsr 0.1.7
+
+* added Connections pane interface to DB Server [#35](https://github.com/beanumber/mdsr/issues/35)
+* removed superfluous extdata [#37](https://github.com/beanumber/mdsr/issues/37)
+* removed broken link in CIA documentation [#38](https://github.com/beanumber/mdsr/issues/38)
+
 mdsr 0.1.6
 
 * improved documentation [#18](https://github.com/beanumber/mdsr/issues/18)
