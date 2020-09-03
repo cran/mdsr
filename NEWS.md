@@ -1,3 +1,21 @@
+mdsr 0.2.0
+
+* Update for 2nd edition of the book
+* LaTeX macros added
+* `Emails` and `Headlines` data sets added
+* `world_cities` data set updated from source
+* removed `mosaic` dependency
+* updated `DataSciencePapers`
+* renamed `ordway_birds`
+* converted spatial objects to `sf`
+* added `save_webshot()` function
+* fixed URLs with trailing slashes and https
+
+mdsr 0.1.8
+
+* Removed deprecated versions of `dplyr` functions.
+* Added `skim()`
+
 mdsr 0.1.7
 
 * added Connections pane interface to DB Server [#35](https://github.com/beanumber/mdsr/issues/35)

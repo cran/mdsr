@@ -1,9 +1,13 @@
-Modern Data Science with R
-================
 
-[![Travis-CI Build Status](https://travis-ci.org/beanumber/mdsr.svg?branch=master)](https://travis-ci.org/beanumber/mdsr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mdsr)](https://cran.r-project.org/package=mdsr) [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/mdsr)](http://www.r-pkg.org/pkg/mdsr)
+# mdsr <img src='man/figures/logo.png' align="right" height="139" />
 
-A complement to the CRC Press book [*Modern Data Science with R*](http://mdsr-book.github.io/).
+![R-CMD-check](https://github.com/beanumber/mdsr/workflows/R-CMD-check/badge.svg)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/mdsr)](https://cran.r-project.org/package=mdsr)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/mdsr)](https://www.r-pkg.org/pkg/mdsr)
+
+A complement to the CRC Press book [*Modern Data Science with
+R*](https://mdsr-book.github.io/).
 
 To install it, try:
 

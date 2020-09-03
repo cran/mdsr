@@ -4,10 +4,12 @@
 \name{DataSciencePapers}
 \alias{DataSciencePapers}
 \title{Data Science Papers from arXiv.org}
-\format{A data frame with 95 observations on the following 15 variables.
+\format{
+A data frame with 1089 observations on the following 15 variables.
 \describe{ \item{id}{unique arXiv.org identifier for the paper}
-\item{submitted}{date submitted} \item{updated}{date last
-updated} \item{title}{title of the paper}
+\item{submitted}{date submitted} 
+\item{updated}{date last updated} 
+\item{title}{title of the paper}
 \item{abstract}{contents of the abstract}
 \item{authors}{authors of the paper}
 \item{affiliations}{affiliations of the authors}
@@ -17,16 +19,17 @@ updated} \item{title}{title of the paper}
 \item{comment}{commentary} \item{journal_ref}{reference to
 the journal (if published)} \item{doi}{digital object identifier}
 \item{primary_category}{arXiv.org primary category}
-\item{categories}{arXiv.org categories} }}
+\item{categories}{arXiv.org categories} }
+}
 \source{
-\url{arxiv.org}
+\url{https://arxiv.org/}
 }
 \usage{
 DataSciencePapers
 }
 \description{
-Papers matching the search string "Data Science" on arXiv.org in December,
-2015
+Papers matching the search string "Data Science" on arXiv.org in August,
+2020
 }
 \examples{
 

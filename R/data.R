@@ -58,9 +58,7 @@
 #' @references \url{https://github.com/factbook/factbook/blob/master/data/categories.csv}
 #' @keywords datasets
 #' @examples
-#' 
-#' data(CIACountries)
-#' glimpse(CIACountries)
+#' str(CIACountries)
 #' 
 "CIACountries"
 
@@ -130,14 +128,16 @@
 #' }
 #' }
 #' @seealso \code{\link{ViolationCodes}}, \code{\link{Cuisines}}
-#' @source NYC Open Data, \url{https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j}
+#' @source NYC Open Data, \url{https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j/}
 #' @examples 
 #' data(Violations)
-#' Violations %>%
-#'   inner_join(Cuisines, by = "cuisine_code") %>%
-#'   filter(cuisine_description == "American") %>%
-#'   arrange(grade_date) %>%
-#'   head() 
+#' if (require(dplyr)) {
+#'   Violations %>%
+#'     inner_join(Cuisines, by = "cuisine_code") %>%
+#'     filter(cuisine_description == "American") %>%
+#'     arrange(grade_date) %>%
+#'     head()
+#'  }
 "Violations"
 
 #' @rdname Violations
@@ -164,15 +164,16 @@
 
 #' Data Science Papers from arXiv.org
 #' 
-#' @description Papers matching the search string "Data Science" on arXiv.org in December,
-#' 2015
+#' @description Papers matching the search string "Data Science" on arXiv.org in August,
+#' 2020
 #' 
 #' @name DataSciencePapers
 #' @docType data
-#' @format A data frame with 95 observations on the following 15 variables.
+#' @format A data frame with 1089 observations on the following 15 variables.
 #' \describe{ \item{id}{unique arXiv.org identifier for the paper}
-#' \item{submitted}{date submitted} \item{updated}{date last
-#' updated} \item{title}{title of the paper}
+#' \item{submitted}{date submitted} 
+#' \item{updated}{date last updated} 
+#' \item{title}{title of the paper}
 #' \item{abstract}{contents of the abstract}
 #' \item{authors}{authors of the paper}
 #' \item{affiliations}{affiliations of the authors}
@@ -183,7 +184,7 @@
 #' the journal (if published)} \item{doi}{digital object identifier}
 #' \item{primary_category}{arXiv.org primary category}
 #' \item{categories}{arXiv.org categories} }
-#' @source \url{arxiv.org}
+#' @source \url{https://arxiv.org/}
 #' @keywords datasets
 #' @examples
 #' 
@@ -219,7 +220,7 @@
 #' @source Extracted from the highly repetitive table provided by the Centers
 #' for Medicare and Medicaid Services.
 #' See
-#' \url{http://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Inpatient.html}
+#' \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Inpatient}
 #' @keywords datasets
 #' @seealso \code{\link{MedicareCharges}}
 #' @examples
@@ -234,7 +235,7 @@
 #' charged Medicare for various inpatient procedures, how many were performed,
 #' and how much Medicare actually paid.
 #' 
-#' These data are part of a set with \code{DirectRecoveryGroups}, which gives a
+#' These data are part of a set with \code{DiagnosisRelatedGroup}, which gives a
 #' description of the medical procedure associated with each DRG, and
 #' \code{MedicareProviders}, which translates \code{idProvider} into a name,
 #' address, state, Zip, etc..
@@ -245,16 +246,17 @@
 #' @docType data
 #' @format A data frame with 5,025 observations on the following 4 variables.
 #' \describe{ 
-#'  \item{drg}{Code for the Direct Recovery Group: a
+#'  \item{drg}{Code for the Diagnosis Related Group: a
 #' character string that looks like a number.} 
 #'  \item{stateProvider}{the state providing the care.} 
 #'  \item{num_charges}{the total number of charges.}
 #'  \item{mean_charge}{the average charge for each \code{drg} across each state}
 #'  }
 #' @source Data from the Centers for Medicare and Medicaid Services.
-#' See \url{http://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Inpatient.html}.
+#' See \url{https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Inpatient}.
 #' @keywords datasets
 #' @seealso \code{\link{MedicareProviders}}
+#' @references \url{https://hmsa.com/portal/provider/zav_pel.fh.DIA.650.htm}
 #' @examples
 #' 
 #' data(MedicareCharges)
@@ -267,7 +269,7 @@
 #' 
 #' @docType data
 #' @format A character vector of length 1
-#' @source Project Gutenberg, \url{http://www.gutenberg.org/ebooks/1129}
+#' @source Project Gutenberg, \url{https://www.gutenberg.org/ebooks/1129/}
 "Macbeth_raw"
 
 #' State SAT scores from 2010
@@ -296,28 +298,26 @@
 #' A list of cities
 #' 
 #' 
-#' @name WorldCities
+#' @name world_cities
 #' @docType data
-#' @format A data frame with 23,018 observations on the following 10 variables.
+#' @format A data frame with 4,428 observations on the following 10 variables.
 #' \describe{ 
-#' \item{code}{The ISO (?) city code}
-#' \item{name}{Name of the city} 
-#' \item{latitude}{location in degrees} 
-#' \item{longitude}{location in degrees}
-#' \item{country}{Two letter country code}
-#' \item{countryRegion}{A numerical region}
+#' \item{geoname_id}{integer id of record in geonames database}
+#' \item{name}{name of geographical point in plain ascii characters} 
+#' \item{latitude}{latitude in decimal degrees (wgs84)} 
+#' \item{longitude}{longitude in decimal degrees (wgs84)}
+#' \item{country}{ISO-3166 2-letter country code}
+#' \item{country_region}{fipscode}
 #' \item{population}{Population} 
-#' \item{regionCode}{ISO (?) Code} 
-#' \item{region}{Name of the region} 
-#' \item{date}{Date estimate made} }
-#' @references In Draft: We need a proper reference
-#' @source In Draft: Somewhere on the Internet.  We need a proper source.
+#' \item{timezone}{the iana timezone id} 
+#' \item{modification_date}{date of last modification} }
+#' @source GeoNames: \url{https://download.geonames.org/export/dump/}
 #' @keywords datasets
 #' @examples
 #' 
-#' data(WorldCities)
+#' world_cities
 #' 
-"WorldCities"
+"world_cities"
 
 #' Votes from Scottish Parliament
 #' @docType data
@@ -372,15 +372,15 @@
 #' These are further subdivided into precincts. } 
 #' }
 #' @references Description of ranked-choice voting:
-#' \url{http://vote.minneapolismn.gov/rcv/index.htm}
+#' \url{https://vote.minneapolismn.gov/rcv/index.htm}
 #' 
 #' A Minnesota Public Radio story about the election ballot tallying process:
-#' \url{http://minnesota.publicradio.org/display/web/2013/11/22/politics/ranked-choice-vote-count-programmers}
+#' \url{https://minnesota.publicradio.org/display/web/2013/11/22/politics/ranked-choice-vote-count-programmers/}
 #' 
 #' The Wikipedia article about the election:
-#' \url{http://en.wikipedia.org/wiki/Minneapolis_mayoral_election,_2013}
+#' \url{https://en.wikipedia.org/wiki/2013_Minneapolis_mayoral_election}
 #' @source Ballot data from the Minneapolis city government:
-#' \url{http://vote.minneapolismn.gov/www/groups/public/@clerk/documents/webcontent/2013-mayor-cvr.xlsx}
+#' \url{https://vote.minneapolismn.gov/www/groups/public/@clerk/documents/webcontent/2013-mayor-cvr.xlsx}
 #' @keywords datasets
 #' @examples
 #' 
@@ -396,7 +396,7 @@
 #' There are many extraneous levels of variables such as species.  Part of the
 #' purpose of this data set is to teach about data cleaning.
 #' 
-#' @name OrdwayBirds
+#' @name ordway_birds
 #' @docType data
 #' @format A data frame with 15,829 observations on the bird's species, size,
 #' date found, and band number.
@@ -434,28 +434,29 @@
 #' not anything about the bird being described.
 #' @source Jerald Dosch, Dept. of Biology, Macalester College: the manager of
 #' the Study Area.
+#' @references \url{https://www.macalester.edu/ordway/}
 #' @keywords datasets
 #' @examples
 #' 
-#' data(OrdwayBirds)
+#' ordway_birds
 #' 
-"OrdwayBirds"
+"ordway_birds"
 
 #' Deaths and Pumps from 1854 London cholera outbreak
 #' @docType data
-#' @format An object of class \code{\link[sp]{SpatialPointsDataFrame}} 
+#' @format An object of class \code{\link[sf]{sf}} 
 #' whose data attribute has 250 rows and 2 columns.
 #' @details Both spatial objects are projected in EPSG:27700, aka the British
 #' National Grid.
 #' @source \url{http://blog.rtwilson.com/john-snows-cholera-data-in-more-formats/}
 #' @examples 
-#' if (require(sp)) {
-#'   plot(CholeraDeaths)
+#' if (require(sf)) {
+#'   plot(st_geometry(CholeraDeaths))
 #' }
 "CholeraDeaths"
 
 #' @rdname CholeraDeaths
-#' @format An object of class \code{\link[sp]{SpatialPointsDataFrame}}.
+#' @format An object of class \code{\link[sf]{sf}}.
 #' @docType data
 "CholeraPumps"
 
@@ -488,10 +489,10 @@
 #' }
 #' 
 #' @seealso \code{\link{Cancer}}
-#' @references Staunton et al. (\url{http://www.pnas.org/content/98/19/10787.full})
+#' @references Staunton et al. (\url{https://www.pnas.org/content/98/19/10787.full})
 #' 
 #' D.T. Ross et al. (2000) Nature Genetics, 24(3):227-234
-#' (\url{http://discover.nci.nih.gov/host/2000_systematic_abstract.jsp})
+#' (\url{https://discover.nci.nih.gov/host/2000_systematic_abstract.jsp})
 #' @examples
 #' 
 #' data(NCI60_tiny) 
@@ -502,3 +503,59 @@
 #' @docType data
 
 "Cancer"
+
+#' Headlines_train
+#' @description This data comes from Chakraborty et. al., which combines headlines from
+#' a variety of news and clickbait sources. Some headlines contain
+#' subject matter inappropriate for classroom use. Given the volume of headlines
+#' containing such language (especially for \code{clickbait == TRUE}), this filtering
+#' might not catch all problematic headlines. User discretion is advised.
+#' The training dataset is a random sample of approximately 80\% of the observations
+#' from the original dataset.
+#'
+#' @docType data
+#' @format A data frame with 18,360 rows and 3 variables:
+#' \describe{
+#'   \item{title}{a character vector}
+#'   \item{clickbait}{a logical vector}
+#'   \item{ids}{an integer vector}
+#' }
+#' @source \url{https://github.com/bhargaviparanjape/clickbait/}
+#' @references \url{https://doi.org/10.1109/ASONAM.2016.7752207}
+"Headlines_train"
+
+#' @rdname Headlines_train
+#' @description The testing dataset is a random sample of the remaining 20\% of the observations
+#' not found in the training set.
+#' @docType data
+#' @format A data frame with 4,589 rows and 3 variables:
+#' @examples 
+#' nrow(Headlines_train)
+#' nrow(Headlines_test)
+"Headlines_test"
+
+#' Email Train
+#'
+#' The training dataset includes a set of email subject lines used for classification
+#' of whether the message is spam (unsolicited commercial content) or not.
+#' Many subject lines include subject matter inappropriate for classroom use. 
+#' Given the volume of headlines containing such language 
+#' (especially for \code{spam == TRUE}), user discretion is advised.
+#' This dataset is a random sample of 80\% of the emails data.
+#' @docType data
+#' @format A data frame with 5,526 rows and 3 variables:
+#' \describe{
+#'   \item{ids}{an integer vector}
+#'   \item{subjectline}{a character vector}
+#'   \item{type}{a character vector}
+#' }
+#' @source \url{http://www.rdatasciencecases.org/Spam/}
+"Emails_train"
+#' @rdname Emails_train
+#' @description The testing dataset is a random sample of 20\% of the emails data.
+#' @docType data
+#' @format A data frame with 1,382 rows and 3 variables:
+#' @examples 
+#' nrow(Emails_train)
+#' nrow(Emails_test)
+"Emails_test"

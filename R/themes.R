@@ -6,14 +6,14 @@
 #' @importFrom ggplot2 %+replace%
 #' @export
 #' @examples 
-#' 
-#' p <- ggplot(mtcars, aes(x = hp, y = mpg, color = factor(cyl))) + 
-#'   geom_point() + facet_wrap(~ am) + geom_smooth()
-#' p + theme_grey()
-#' p + theme_mdsr()
+#' if (require(ggplot2)) {
+#'   p <- ggplot(mtcars, aes(x = hp, y = mpg, color = factor(cyl))) + 
+#'     geom_point() + facet_wrap(~ am) + geom_smooth()
+#'   p + theme_grey()
+#'   p + theme_mdsr()
+#'  }
 
 theme_mdsr <- function(base_size = 12, base_family = "Bookman") {
-  m <- mosaic::theme_map()
   ggplot2::theme_grey(base_size = base_size, base_family = base_family) %+replace%
     ggplot2::theme(
       axis.text        = ggplot2::element_text(size = ggplot2::rel(0.8)),
@@ -26,3 +26,30 @@ theme_mdsr <- function(base_size = 12, base_family = "Bookman") {
       strip.background = ggplot2::element_rect(fill = "grey80", colour = "grey50", size = 0.2)
     )
 }
+
+#' Custom skimmer
+#' @export
+#' @importFrom skimr skim
+#' @inheritParams skimr::skim
+#' @examples
+#' skim(faithful)
+
+skim <- function(data, ...) {
+  my_skim <- skimr::skim_with(
+    base = skimr::sfl(
+      n = length,
+      missing = skimr::n_missing
+    ), 
+    numeric = skimr::sfl(
+      hist = NULL
+    )
+  )
+  my_skim(data, ...) %>%
+    skimr::yank("numeric") %>%
+    dplyr::rename(
+      var = skim_variable,
+      na = missing
+    )
+}
+
+globalVariables("skim_variable")
