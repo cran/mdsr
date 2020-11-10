@@ -3,26 +3,32 @@
 \name{macros}
 \alias{macros}
 \alias{func}
+\alias{sql_func}
+\alias{sql_word}
 \alias{argument}
 \alias{variable}
 \alias{pkg}
 \alias{mdsr_data}
-\alias{person}
+\alias{mdsr_person}
 \alias{vocab}
 \alias{index_entry}
 \title{Replacements for LaTeX macros}
 \usage{
-func(x)
+func(x, index = TRUE)
+
+sql_func(x)
+
+sql_word(x)
 
 argument(x)
 
 variable(x)
 
-pkg(x)
+pkg(x, index = TRUE)
 
 mdsr_data(x)
 
-person(x)
+mdsr_person(x)
 
 vocab(x)
 
@@ -30,6 +36,8 @@ index_entry(index_label = "subject", x)
 }
 \arguments{
 \item{x}{text to wrap in macro}
+
+\item{index}{add LaTeX indexing?}
 
 \item{index_label}{the name of the index}
 }
