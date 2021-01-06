@@ -5,18 +5,17 @@ test_that("scidb works", {
   expect_s4_class(x, "DBIObject")
   expect_output(print(x), "MySQLConnection")
   
-  y <- tbl(x, "airports")
+  suppressWarnings(y <- tbl(x, "airports"))
   expect_s3_class(y, c("tbl_dbi", "tbl_sql", "tbl"))
-  expect_output(print(y), "mdsr_public")
-  expect_output(print(y), "rds.amazonaws.com")
-  suppressWarnings(
-    expect_equal(
-      y %>% 
-        head(1) %>%
-        collect() %>%
-        nrow(), 
-      1
-    )
+  expect_match(DBI::dbGetInfo(x)$host, "^mdsr.+rds\\.amazonaws\\.com$")
+  expect_equal(DBI::dbGetInfo(x)$user, "mdsr_public")
+  expect_equal(
+    y %>% 
+      head(1) %>%
+      collect() %>%
+      nrow() %>%
+      suppressWarnings(), 
+    1
   )
   expect_length(DBI::dbListTables(x), 4)
 })
@@ -33,11 +32,12 @@ test_that("download functions work", {
 
 
 test_that("save_webshot works", {
+  skip_on_cran()
   if (require(leaflet)) {
-    map <- leaflet() %>%
+    x <- leaflet() %>%
       addTiles() %>%
       addMarkers(lng = 174.768, lat = -36.852, popup = "The birthplace of R")
-    png <- save_webshot(map, tempfile())
+    png <- save_webshot(x, tempfile())
     expect_is(png, "fs_path")
 #    expect_true(file.exists(png))
   }

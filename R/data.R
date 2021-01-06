@@ -53,9 +53,9 @@
 #' \item{net_users}{Fraction of Internet users (\% of population), 2153}
 #' }
 #' @source From the CIA World Factbook,
-#' \url{https://www.cia.gov/library/publications/the-world-factbook/}
+#' \url{https://www.cia.gov/the-world-factbook/}
 #' @seealso \code{\link[mosaic]{CIAdata}}
-#' @references \url{https://github.com/factbook/factbook/blob/master/data/categories.csv}
+#' @references \url{https://github.com/factbook/factbook/blob/master/CATEGORIES.md}
 #' @keywords datasets
 #' @examples
 #' str(CIACountries)
@@ -521,7 +521,7 @@
 #'   \item{ids}{an integer vector}
 #' }
 #' @source \url{https://github.com/bhargaviparanjape/clickbait/}
-#' @references \url{https://doi.org/10.1109/ASONAM.2016.7752207}
+#' @references \doi{10.1109/ASONAM.2016.7752207}
 "Headlines_train"
 
 #' @rdname Headlines_train
@@ -549,7 +549,7 @@
 #'   \item{subjectline}{a character vector}
 #'   \item{type}{a character vector}
 #' }
-#' @source \url{http://www.rdatasciencecases.org/Data.html}
+#' @source Originally retrieved from http://www.rdatasciencecases.org/Data.html
 "Emails_train"
 #' @rdname Emails_train
 #' @description The testing dataset is a random sample of 20\% of the emails data.
@@ -559,3 +559,32 @@
 #' nrow(Emails_train)
 #' nrow(Emails_test)
 "Emails_test"
+
+#' Saratoga Houses
+#' @docType data
+#' @format A tibble with 1728 rows and 16 variables:
+#' \describe{
+#'  \item{price}{},
+#'  \item{lot_size}{},
+#'  \item{waterfront}{},
+#'  \item{age}{},
+#'  \item{land_value}{},
+#'  \item{construction}{},
+#'  \item{air_cond}{},
+#'  \item{fuel}{},
+#'  \item{heat}{},
+#'  \item{sewer}{},
+#'  \item{living_area}{},
+#'  \item{pct_college}{},
+#'  \item{bedrooms}{},
+#'  \item{fireplaces}{},
+#'  \item{bathrooms}{},
+#'  \item{rooms}{}
+#'  }
+#'  @examples 
+#'  saratoga_houses
+"saratoga_houses"
+
+#' @rdname saratoga_houses
+#' @docType data
+"saratoga_codes"

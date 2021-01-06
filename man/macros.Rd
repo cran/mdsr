@@ -14,7 +14,7 @@
 \alias{index_entry}
 \title{Replacements for LaTeX macros}
 \usage{
-func(x, index = TRUE)
+func(x, ...)
 
 sql_func(x)
 
@@ -24,23 +24,55 @@ argument(x)
 
 variable(x)
 
-pkg(x, index = TRUE)
+pkg(x, ...)
 
 mdsr_data(x)
 
-mdsr_person(x)
+mdsr_person(x, ...)
 
-vocab(x)
+vocab(x, ...)
 
-index_entry(index_label = "subject", x)
+index_entry(
+  index_label = "subject",
+  x,
+  emph = FALSE,
+  index = TRUE,
+  .f = NULL,
+  alt = NULL
+)
 }
 \arguments{
 \item{x}{text to wrap in macro}
 
-\item{index}{add LaTeX indexing?}
+\item{...}{arguments passed to \code{\link{index_entry}}}
 
 \item{index_label}{the name of the index}
+
+\item{emph}{Display the LaTeX entry in italics}
+
+\item{index}{add LaTeX indexing?}
+
+\item{.f}{function to apply to \code{\link{x}} during indexing}
+
+\item{alt}{alternate character string to use for indexing}
 }
 \description{
 Replacements for LaTeX macros
+}
+\examples{
+func("mutate")
+func("mutate", index = FALSE)
+func("left_join")
+pkg("dplyr")
+mdsr_person("Ben Baumer")
+mdsr_person("Ben Baumer", emph = TRUE)
+mdsr_person("Richard De Veaux")
+mdsr_person("Richard De Veaux", alt = "De Veaux, Richard")
+vocab(x = "Big data", .f = tolower)
+index_entry(x = "Barack Obama")
+index_entry(x = "Barack Obama", index = FALSE)
+index_entry(x = "Big data", .f = tolower)
+index_entry(x = "Twilight", emph = TRUE)
+index_entry(x = "Richard De Veaux", alt = "De Veaux, Richard")
+index_entry(x = "left_join")
 }

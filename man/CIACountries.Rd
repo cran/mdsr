@@ -20,7 +20,7 @@ in the World. (236 countries are given.)
 }
 \source{
 From the CIA World Factbook,
-\url{https://www.cia.gov/library/publications/the-world-factbook/}
+\url{https://www.cia.gov/the-world-factbook/}
 }
 \usage{
 CIACountries
@@ -37,7 +37,7 @@ str(CIACountries)
 
 }
 \references{
-\url{https://github.com/factbook/factbook/blob/master/data/categories.csv}
+\url{https://github.com/factbook/factbook/blob/master/CATEGORIES.md}
 }
 \seealso{
 \code{\link[mosaic]{CIAdata}}
