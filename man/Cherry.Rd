@@ -5,22 +5,26 @@
 \alias{Cherry}
 \title{Cherry Blossom runs}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) 
-with 41,248 rows and 8 columns. Each row refers to an individual runner in one race of the 
-Cherry Blossom Ten Miler. The data cover the years 1999 to 2008. All of the runners listed ran
-at least two of the races in that period, some ran many more than that. 
+An object of class \link[tibble:tbl_df-class]{tibble::tbl_df} with 41,248 rows and 8 columns.
+Each row refers to an individual runner in one race of the
+Cherry Blossom Ten Miler. The data cover the years 1999 to 2008.
+All of the runners listed ran
+at least two of the races in that period, some ran many more than that.
 \describe{
-  \item{name.yob}{a unique identifier for each runner composed of the runner's full name and
-  year of birth.}
-  \item{age}{integer giving the runner's age in the race whose result is being reported.}
-  \item{gun}{the number of minutes elapsed from the starter's gun to the person crossing the finish line}
-  \item{net}{the number of minutes elapsed from the runner's crossing the start line to crossing the finish line.}
-  \item{sex}{the runner's sex}
-  \item{year}{the year of that race}
-  \item{previous}{integer specifying how many times previous to this race the runner had participated in the years 1999 to 2008.}
-  \item{nruns}{integer giving the total number of times that runner participated in the years from 1999 to 2008. The smallest is 2, the largest is 10.}
-  \item{nruns}{integer giving the total number of times that runner participated in the years from 1999 to 2008. The smallest is 2, the largest is 10.}
+\item{name.yob}{a unique identifier for each runner composed of the runner's full name and
+year of birth.}
+\item{age}{integer giving the runner's age in the race whose result is being reported.}
+\item{gun}{the number of minutes elapsed from the starter's gun to the person crossing the finish line}
+\item{net}{the number of minutes elapsed from the runner's crossing the start line to crossing the finish line.}
+\item{sex}{the runner's sex}
+\item{year}{the year of that race}
+\item{previous}{integer specifying how many times previous to this race the runner had participated in the years 1999 to 2008.}
+\item{nruns}{integer giving the total number of times that runner participated in the years from 1999 to 2008. The smallest is 2, the largest is 10.}
+\item{nruns}{integer giving the total number of times that runner participated in the years from 1999 to 2008. The smallest is 2, the largest is 10.}
 }
+}
+\source{
+\url{https://www.cherryblossom.org/post-race/race-results/}.
 }
 \usage{
 Cherry
@@ -36,11 +40,14 @@ are published at \url{https://www.cherryblossom.org/post-race/race-results/}.
 }
 \examples{
 if (require(dplyr)) {
-  Cherry \%>\%
-    group_by(name.yob) \%>\%
-    count() \%>\%
-    group_by(n) \%>\%
+  Cherry |>
+    group_by(name.yob) |>
+    count() |>
+    group_by(n) |>
     count(name = "appearances")
 }
+}
+\seealso{
+\emph{Data Science in R}, Nolan and Temple Lang (ISBN 978-1482234817), Ch. 2
 }
 \keyword{datasets}

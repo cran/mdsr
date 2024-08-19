@@ -8,15 +8,15 @@
 \format{
 A data frame with 5,526 rows and 3 variables:
 \describe{
-  \item{ids}{an integer vector}
-  \item{subjectline}{a character vector}
-  \item{type}{a character vector}
+\item{ids}{an integer vector}
+\item{subjectline}{a character vector}
+\item{type}{a character vector}
 }
 
 A data frame with 1,382 rows and 3 variables:
 }
 \source{
-Originally retrieved from http://www.rdatasciencecases.org/Data.html
+Originally retrieved from \url{https://www.stat.berkeley.edu/~nolan/data/spam/SpamAssassinMessages.zip}
 }
 \usage{
 Emails_train
@@ -26,8 +26,8 @@ Emails_test
 \description{
 The training dataset includes a set of email subject lines used for classification
 of whether the message is spam (unsolicited commercial content) or not.
-Many subject lines include subject matter inappropriate for classroom use. 
-Given the volume of headlines containing such language 
+Many subject lines include subject matter inappropriate for classroom use.
+Given the volume of headlines containing such language
 (especially for \code{spam == TRUE}), user discretion is advised.
 This dataset is a random sample of 80\% of the emails data.
 
@@ -36,5 +36,8 @@ The testing dataset is a random sample of 20\% of the emails data.
 \examples{
 nrow(Emails_train)
 nrow(Emails_test)
+}
+\seealso{
+\emph{Data Science in R}, Nolan and Temple Lang (ISBN 978-1482234817), Ch. 3
 }
 \keyword{datasets}

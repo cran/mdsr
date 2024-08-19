@@ -7,7 +7,7 @@
 make_babynames_dist()
 }
 \value{
-a \code{\link[dplyr]{tbl_df}} similar to \code{\link[babynames]{babynames}}
+a \link[tibble:tbl_df-class]{tibble::tbl_df} similar to \link[babynames:babynames]{babynames::babynames}
 with a column for the estimated number of people alive in 2014.
 }
 \description{
@@ -17,7 +17,7 @@ Wrangle babynames data
 
 BabynameDist <- make_babynames_dist()
 if (require(dplyr)) {
-  BabynameDist \%>\%
+  BabynameDist |>
     filter(name == "Benjamin")
 }
 }
