@@ -105,8 +105,8 @@
 #' @details The Cherry Blossom 10 Mile Run is a road race held in Washington,
 #' D.C. in April each year.  (The name comes from the famous cherry trees
 #' that are in bloom in April in Washington.)  The results of this race
-#' are published at <https://www.cherryblossom.org/post-race/race-results/>.
-#' @source <https://www.cherryblossom.org/post-race/race-results/>.
+#' are published at <https://cherryblossom.org/post-race/race-results/>.
+#' @source <https://cherryblossom.org/post-race/race-results/>.
 #' @seealso *Data Science in R*, Nolan and Temple Lang (ISBN 978-1482234817), Ch. 2 
 #' @examples
 #' if (require(dplyr)) {
@@ -598,3 +598,13 @@
 #' @rdname saratoga_houses
 #' @docType data
 "saratoga_codes"
+
+#' Blood pressure readings
+#' @details Wide and narrow representations of blood pressure data.
+#' @docType data
+"BP_narrow"
+
+#' @rdname BP_narrow
+#' @docType data
+"BP_wide"
+

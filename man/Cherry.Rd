@@ -24,7 +24,7 @@ year of birth.}
 }
 }
 \source{
-\url{https://www.cherryblossom.org/post-race/race-results/}.
+\url{https://cherryblossom.org/post-race/race-results/}.
 }
 \usage{
 Cherry
@@ -36,7 +36,7 @@ Cherry Blossom runs
 The Cherry Blossom 10 Mile Run is a road race held in Washington,
 D.C. in April each year.  (The name comes from the famous cherry trees
 that are in bloom in April in Washington.)  The results of this race
-are published at \url{https://www.cherryblossom.org/post-race/race-results/}.
+are published at \url{https://cherryblossom.org/post-race/race-results/}.
 }
 \examples{
 if (require(dplyr)) {
